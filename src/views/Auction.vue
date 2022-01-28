@@ -27,7 +27,7 @@
                 >
                 </v-select>
               </v-col>
-              <v-col md="4">
+              <v-col md="3">
                 <v-autocomplete
                   :items="nameEntries"
                   :loading="nameLoading"
@@ -43,6 +43,9 @@
                   item-value="id"
                 >
                 </v-autocomplete>
+              </v-col>
+              <v-col>
+                <v-btn height="48" @click="getRandomPlayer"> Next </v-btn>
               </v-col>
             </v-row>
             <v-row>
@@ -94,8 +97,22 @@
                       >
                       </v-img>
                       </v-col>
+                      <v-col md="6" v-if="player.status == 'Retained'">
+                        <v-btn color="error"
+                          ><v-icon class="mr-2">mdi-cancel</v-icon> Retained</v-btn
+                        >
+                        <v-img v-for="bid in bids" :key="bid.id"
+                        :src="
+                          bid.team.image
+                            ? bid.team.image
+                            : 'http://mclabudhabi.com/wp-content/uploads/2021/01/cropped-mcl-1.png'
+                        "
+                        height="150"
+                      >
+                      </v-img>
+                      </v-col>
                       
-                      <!--<v-col md="6" v-if="player.status != 'Sold'">
+                      <v-col md="6" v-if="player.status != 'Sold'">
                         <v-btn
                           color="success"
                           fab
@@ -104,7 +121,7 @@
                           >Mark<br />Sold</v-btn
                         >
                       </v-col>
-                      <v-col md="6" v-if="player.status != 'Sold'">
+                      <!--<v-col md="6" v-if="player.status != 'Sold'">
                         <v-btn
                           color="warning"
                           x-large
@@ -183,7 +200,7 @@
             :called_value="bid.called_value"
           ></team-card>
         </v-col>
-        <!--<v-col md="3">
+        <v-col md="3">
           <v-card>
             <v-card-title class="text-center">Add Bid </v-card-title>
             <v-card-text>
@@ -218,7 +235,7 @@
               >
             </v-card-text>
           </v-card>
-        </v-col> -->
+        </v-col>
       </v-row>
     </v-container>
     <v-snackbar
