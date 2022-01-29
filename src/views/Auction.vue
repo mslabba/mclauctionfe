@@ -9,7 +9,7 @@
           <div class="bg-aurora pa-4">
             <v-row>
               <v-col md="4">
-                <v-img :src="require('@/assets/ec.png')" contain></v-img>
+                <v-img style="width:50%" :src="require('@/assets/ec.png')" contain></v-img>
               </v-col>
               <v-col md="1"></v-col>
               <v-col md="3">
@@ -112,7 +112,7 @@
                       </v-img>
                       </v-col>
                       
-                      <v-col md="6" v-if="player.status != 'Sold'">
+                      <v-col md="6" v-if="player.status != 'Sold' && player.status != 'Retained'">
                         <v-btn
                           color="success"
                           fab
