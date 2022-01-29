@@ -229,6 +229,9 @@
                 v-model="bidForm.called_value"
                 outlined
                 dense
+                type="number"
+                max="999999"
+                oninput="if(Number(this.value) > Number(this.max)) this.value = this.max;"
               ></v-text-field>
               <v-btn block color="primary" @click="addBid"
                 ><v-icon>mdi-plus</v-icon> Add</v-btn
